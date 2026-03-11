@@ -1,6 +1,9 @@
 # Ethos-GPS-Map-Generator
 The Ethos GPS Map Generator is a high-precision, web-based utility designed specifically for the FrSky ETHOS community. It simplifies the process of creating custom map backgrounds for the GPS telemetry widget. AI was used in the process of creation.
 
+![Map_Generator_web_interface](https://github.com/user-attachments/assets/3c6f5bc8-0b0a-4f05-b63a-4717cb92595c)
+
+
 🌟 **Key Features**
 
 🎯 **Navigation & Precision**
