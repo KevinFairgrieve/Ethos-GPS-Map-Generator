@@ -5,7 +5,7 @@ The Ethos GPS Map Generator is a high-precision, web-based tool designed specifi
 > [!IMPORTANT]
 > **Sync Pro Status:** This tool uses the File System Access API. For the best experience, use **Chrome** or **Edge** to enable direct syncing to your Radio's SD card.
 
-<img width="803" height="570" alt="Image" src="https://github.com/user-attachments/assets/93f17ab5-2d89-4e34-9cff-b345ec91f45c" />
+<img width="821" height="578" alt="Image" src="https://github.com/user-attachments/assets/4fbd5631-2489-42c0-8b0c-6dfa3730188d" />
 
 ---
 
@@ -15,7 +15,13 @@ The Ethos GPS Map Generator is a high-precision, web-based tool designed specifi
 * **Integrated Search Box:** Powered by the Leaflet Geocoder, allowing pilots to find any flying field or RC club globally by name or address.
 * **Live Mouse Telemetry:** Displays precision latitude and longitude coordinates in real-time as you move the mouse over the map for pinpoint location checks.
 * **Center Crosshair:** Provides a permanent visual reference for the exact center of your map, making framing effortless.
-* **📏 HUD Measurement Tool:** A "Google Maps" style distance tool. Center the crosshair on your start point, hit **Measure**, and watch real-time Metric and Imperial distances follow the crosshair as you pan the map.
+* **📏 Measurement Tool:** A "Google Maps" style distance tool. Center the crosshair on your start point, hit **Measure**, and watch real-time Metric and Imperial distances follow the crosshair as you pan the map.
+* **🔍 Real-Time Zoom HUD**
+* **Instant Scale Reference:** A dedicated HUD box displays your current Map Zoom level in real-time as you scroll.
+
+* **Framing Precision:** Helps pilots maintain consistent map scales across different projects.
+
+* **Metadata Sync:** The displayed zoom level is automatically captured and exported in your _metadata.txt file, ensuring your radio's scaling calculations are always based on the correct altitude data.
 
 #### 🔒 Control & Framing
 * **Hardware-Specific Resolutions:** One-click toggles for **800x480** (Tandem X20, some X18) and **480x320** (X18) to ensure the map fills the radio screen perfectly.
