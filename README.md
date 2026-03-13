@@ -4,8 +4,6 @@ The Ethos GPS Map Generator is a high-precision, web-based tool designed specifi
 
 > [!IMPORTANT]
 > **Sync Pro Status:** This tool uses the File System Access API. For the best experience, use **Chrome** or **Edge** to enable direct syncing to your Radio's SD card.
->
-
 
 ---
 
