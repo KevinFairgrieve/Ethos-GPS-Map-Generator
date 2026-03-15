@@ -1,74 +1,109 @@
-# 🛰️ Ethos GPS Map Generator — Sync Pro
+# Ethos GPS Map Generator — Sync Pro
 
-The Ethos GPS Map Generator is a high-precision, web-based tool designed specifically for the FrSky ETHOS community. It simplifies the process of creating custom map backgrounds for the GPS telemetry widget. AI was used in the process of creation.
+The Ethos GPS Map Generator is a high-precision, web-based tool designed to create high-precision offline maps for the **Ethos GPS Map Widget**. FrSky Ethos radios require specific image formats and coordinate metadata to display model positions accurately in real-time flying. This tool ensuring that your 16-bit BMP images and telemetry data are perfectly synced. AI was used in the process of creation.
 
 > [!IMPORTANT]
 > **Sync Pro Status:** This tool uses the File System Access API. For the best experience, use **Chrome** or **Edge** to enable direct syncing to your Radio's SD card.
 
-<img width="821" height="578" alt="Image" src="https://github.com/user-attachments/assets/4fbd5631-2489-42c0-8b0c-6dfa3730188d" />
+<img width="815" height="575" alt="Image" src="https://github.com/user-attachments/assets/b7bd16db-99e8-46d8-b7e8-225e4e18de3d" />
 
 ---
 
-### 🌟 Key Features
+## Features
 
-#### 🎯 Navigation & Precision
-* **Integrated Search Box:** Powered by the Leaflet Geocoder, allowing pilots to find any flying field or RC club globally by name or address.
-* **Live Mouse Telemetry:** Displays precision latitude and longitude coordinates in real-time as you move the mouse over the map for pinpoint location checks.
-* **Center Crosshair:** Provides a permanent visual reference for the exact center of your map, making framing effortless.
-* **📏 Measurement Tool:** A "Google Maps" style distance tool. Center the crosshair on your start point, hit **Measure**, and watch real-time Metric and Imperial distances follow the crosshair as you pan the map.
-* **🔍 Real-Time Zoom HUD**
-* **Instant Scale Reference:** A dedicated HUD box displays your current Map Zoom level in real-time as you scroll.
+* **Versatile Map Types**:
+    * **Google Hybrid**: Combines high-resolution satellite imagery with road and landmark labels for better orientation.
+    * **Satellite Only**: Pure aerial photography for a clean look at the runway and flight line.
+    * **Terrain**: Highlights physical features and elevation, useful for slope soaring and mountain flying sites.
+* **Synchronized File Naming**: The tool automatically ensures that the metadata file (`_metadata.txt`) and the image file (`.bmp`) share the **exact same prefix**. This is critical for the Ethos widget to recognize and pair the data with the correct image.
+* **Offline Field Mobility**: By saving the metadata file directly onto the radio, you can switch between different maps (e.g., when changing flying fields) and instantly view the coordinates and boundaries of the new map directly on the radio screen without needing a computer or internet access.
+* **Advanced Export Options**:
+    * **💾 Direct**: Generates an optimized 16-bit BMP. This is the native format for Ethos radios, designed for direct use on the SD card.
+    * **💾 Suite**: Generates a high-quality 24-bit BMP, ideal for users who prefer to process their images through the Ethos Suite desktop application.
+    * **⚡ Extract All**: A one-click productivity feature that simultaneously generates and saves both the Metadata and the 16-bit Direct BMP on your radio (SDcard).
+* **Precision Telemetry Engine**: Automatically generates a detailed `_metadata.txt` file containing high-accuracy decimal coordinates and DMS (Degrees, Minutes, Seconds) boundaries for perfect alignment.
+* **Adaptive Resolution System**:
+    * **Presets**: Quick-toggle options for standard full-screen radio resolutions (800x480 for most of X20/X18 series, and 480x320 for some of X18).
+    * **Custom Engine**: Support for specific widget dimensions with a built-in helper link to the [Ethos Widget Size Check Lua](https://github.com/MartinovEm/Ethos-Widget-Size-Check) for users unsure of their layout pixels.
+* **Sync Pro UI**: A professional dark-mode interface optimized for field use, featuring a live precision crosshair, high-visibility telemetry HUD, and a scale bar.
+* **Hardware Integration**: Native support for the **Web FileSystem API** via the "Link SD Card" button, allowing you to sync files directly to your radio's folders without manual drag-and-drop.
+* **HUD Tools**: 
+    * **Measurement Tool**: Click **📏 Measure** button to measure distances (meters/feet) directly on the map.
+    * **Zoom Lock**: Secure your view to prevent accidental scaling while preparing for export.
+ 
+---
 
-* **Framing Precision:** Helps pilots maintain consistent map scales across different projects.
+## How to Use
 
-* **Metadata Sync:** The displayed zoom level is automatically captured and exported in your _metadata.txt file, ensuring your radio's scaling calculations are always based on the correct altitude data.
+### 1. Locate Your Flying Site
+* **Search**: Use the search box in the top-left of the map to find your location by name or coordinates.
+* **Map Type**: Switch between **Google Hybrid**, **Satellite**, or **Terrain** views to best suit your visibility needs.
+* **Navigation**: Use the mouse wheel to set your altitude (zoom). The tool initializes at **Zoom 12** for a broad overview.
 
-#### 🔒 Control & Framing
-* **Hardware-Specific Resolutions:** One-click toggles for **800x480** (Tandem X20, some X18) and **480x320** (X18) to ensure the map fills the radio screen perfectly.
-* **Precision Zoom Lock:** A specialized safety feature that freezes the map scale. This allows you to pan and center your field without accidentally changing the zoom level, keeping your metadata accurate.
-* **🖱️ Precision UX:** **Right-click** anywhere on the map to instantly cancel measurement mode and return to standard navigation.
+### 2. Configure Resolution
+* Select your radio model from the **Resolution** dropdown. **The presets in the list are for Fullscreen widget layout.**
+* If using a different (or custom) layout, select **Custom** and enter your specific pixel width and height for the widget size you will be using. Also, you can use the provided Lua tool if you need to verify your screen space.
 
-#### 🗺️ Visual Customization
-* **Triple Map Layers:** Choose between Google Hybrid (Satellite with labels), Satellite Only (Clean photo), or Terrain (Topographic contours).
-* **High-Contrast UI:** Designed with a dark "Stealth" theme to make map details pop and reduce glare during outdoor use.
+### 3. Precision Alignment
+* Center the crosshair over the middle of your flying area.
+* Once positioned, check the **Zoom Lock** box to freeze the scale.
+* (Optional) Use the **📏 Measure** tool to verify the flight area boundaries.
 
-#### 💾 Intelligent Export System (Sync Pro)
-* **⚡ Direct SD Sync:** Link your Radio's SD card directly via the browser. Save generated .bmp files straight to /bitmaps/GPS and the generated _metadata.txt file to /documents/user with a single click on **Extract all** button.
-* **Smart File Naming:** Automatically generates filenames to keep your library organized. Directly exported .bmp files contain the Project Title only (up to 11 characters) for easy recognition by Ethos, while the _metadata.txt file includes the Project Title, Zoom Scale, and a Timestamp.
-* **Optimized Metadata:** Pre-calculated with the specific coordinate alignment required by ETHOS, providing both DMS (Degrees, Minutes, Seconds) and Decimal formats.
+### 4. Direct Sync & Export
+* **Link SD Card**: Connect your radio via USB (Storage Mode). Click **🔗 Link SD Card** and select the root of your radio's SD drive.
+* **Extract All**: Click the **⚡ Extract All** button. This will generate and save both the 16-bit BMP and the Metadata file in one click.
+    * If linked, files are sent to `/bitmaps/GPS` and `/documents/user`.
+    * If not linked, the files will download to your browser's default downloads folder.
+* **Manual Export**: Use the individual **Meta**, **Direct** (16-bit), or **Suite** (24-bit) buttons for specific file needs.
+
+### 5. If exported via Suite-button:
+* Open **Ethos Suite** and use the **Image Manager** to transcode the BMP to the radio's native 16-bit format.
+* Use the values in the generated `_metadata.txt` to configure your GPS widget fields on the radio.
+
+**Radio/SD card linking:**
+
+<img width="994" height="563" alt="Image" src="https://github.com/user-attachments/assets/49a95f9d-99d5-42c5-b300-1bb0f3f4f32a" />
 
 ---
 
-### 🛰️ Metadata Structure
+### The Metadata File (_metadata.txt)
 
-The generated _metadata.txt is structured for the following requirement:
-* **DMS Coordinates:** Degrees, Minutes, Seconds for manual entry. It is **MANDATORY** to enter these when configuring the GPS map widget.
-* **Decimal Geodata:** Precisely formatted North/South/West/East values for reference.
-* **Resolution & Zoom:** Captured data ensuring the image scales correctly on the radio hardware.
+* **Purpose:** This is your "Cheat Sheet" for the radio settings.
+
+* **Use on PC:** Open this file on your PC and keep it visible while you are on your Radio's **GPS Map Widget Settings page.** Manually enter the **DMS (Degrees, Minutes, Seconds)** values into the corresponding North, South, East, and West fields in the widget.
+
+#### Setting coordinates in GPS Map Widget:
+
+![Coordinates_Ethos](https://github.com/user-attachments/assets/35171816-a20f-4991-b2a8-8ef600715bb8)
+
+#### OR
+
+* **Use on the radio:** Look at the metadata file in RADIO:/documents/user and manually enter the coordinates in the corresponding fields in the widget settings.
+
+![File manager](https://github.com/user-attachments/assets/14256bb3-ecc8-41fa-9f13-2e8cc469b153)
+
+![TXT document reading from the radio](https://github.com/user-attachments/assets/ee8009ff-7dd1-4cce-8790-ab8a2c7e3ae2)
 
 ---
 
-### 📖 How to Use
+### Final Verification Checklist
 
-1.  **Launch:** Open `index.html` in a Chrome or Edge browser.
-2.  **Link (Recommended):** Click **🔗 Link SD Card** and select the root folder of your Radio's SD card. Grant the browser "View and Edit" permissions.
-3.  **Locate:** Use the **SEARCH** box to find your flying site.
-4.  **Measure (not mandatory):** Align the crosshair with the start of your runway, click **📏 Measure**, then drag the map to the end point to verify runway length in the HUD. **Right-click** anywhere on the map to clear.
-5.  **Frame & Lock:** Adjust zoom until your area is centered, then check the **Zoom Lock** box and enter your **Project Title**.
-6.  **Download/Sync:**
-    * Click **⚡ Extract All** to sync the 16-bit BMP and Metadata directly to your radio folders.
-    * Alternatively, use **💾 Suite** for a 24-bit source image.
-7.  **Use coordinates** from _metadata.txt file when setting the corresponding bitmap image in GPS Map Widget. This .txt file will be created and included in the /documents/user foder of your radio (SD card) when using Direct download, or on your Brouwser's download directory when using Suite download.
-8.  **Finalize (when exported via Suite-button):**
-    * Open **Ethos Suite** and use the **Image Manager** to transcode the BMP to the radio's native 16-bit format.
-    * Use the values in the generated `_metadata.txt` to configure your GPS widget fields on the radio.
+* **Sync:** Ensure the **.bmp is in /bitmaps/GPS** and the **.txt is in /documents/user.**
+
+* **Widget:** Select your map in the GPS widget on the radio. Ensure you entered the N, S, E and W coordinates from `_metadata.txt` file as shown in the picture above.
+
+* **Accuracy:** If your "Home" icon doesn't match your physical location, double-check that you didn't swap the North/South or East/West values when typing them into the radio.
+
+#### Еxample of accuracy:
+
+![Map_accuracy](https://github.com/user-attachments/assets/5ec89c74-d227-4e19-910d-f94d4404befb)
 
 ---
 
 ### ⚠️ Important: Understanding the File Formats
 When you export your files, you will notice differences in how they appear depending on where you open them:
 
-**🗺️ The Map Image (.bmp)**
+**The Map Image (.bmp)**
 
 * **On the Radio:** If you used **Direct (16-bit)**, the map will look perfect, crisp, and colorful on your Ethos screen.
 
@@ -76,35 +111,6 @@ When you export your files, you will notice differences in how they appear depen
 
 * **Suite (24-bit):** Will look like a normal satellite photo on your PC. Use this version only if you plan to process it through the Ethos Suite Image Manager.
 
-**📄 The Metadata File (_metadata.txt)**
-
-* **Purpose:** This is your "Cheat Sheet" for the radio settings.
-
-* **How to Use:** Open this file on your PC and keep it visible while you are on your Radio's **GPS Widget Settings page.**
-
-* **Entry:** Manually enter the **DMS (Degrees, Minutes, Seconds)** values into the corresponding North, South, East, and West fields in the widget.
-
-**🛰️ Final Verification Checklist**
-
-* **Sync:** Ensure the **.bmp is in /bitmaps/GPS** and the **.txt is in /documents/user.**
-
-* **Widget:** Select your map in the GPS widget on the radio.
-
-* **Accuracy:** If your "Home" icon doesn't match your physical location, double-check that you didn't swap the North/South or East/West values when typing them into the radio.
-  
-#### Setting coordinates in GPS Map Widget:
-
-![Coordinates_Ethos](https://github.com/user-attachments/assets/35171816-a20f-4991-b2a8-8ef600715bb8)
-
-#### Еxample of accuracy:
-
-![Map_accuracy](https://github.com/user-attachments/assets/5ec89c74-d227-4e19-910d-f94d4404befb)
-
-#### Metadata file reading from RADIO:/documents/user
-
-![File manager](https://github.com/user-attachments/assets/14256bb3-ecc8-41fa-9f13-2e8cc469b153)
-
-![TXT document reading from the radio](https://github.com/user-attachments/assets/ee8009ff-7dd1-4cce-8790-ab8a2c7e3ae2)
 
 #### An example of the "Green Storm" overlay in a 16-bit BMP file (a Direct export of the map image intended for use in the radio), loaded onto the desktop::
 
