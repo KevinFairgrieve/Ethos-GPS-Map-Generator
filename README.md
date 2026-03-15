@@ -35,28 +35,34 @@ The Ethos GPS Map Generator is a high-precision, web-based tool designed to crea
 
 ## How to Use
 
-### 1. Locate Your Flying Site
+### 1. To use this tool from the repository:
+1. **Download**: Click the green **Code** button at the top of this page and select **Download ZIP.**
+2. **Extract**: Unzip the files to a folder on your computer.
+3. **Run**: Simply double-click the `index.html` file to open the generator in your web browser. 
+   * *Note: A Chromium-based browser (Chrome or Edge) is required for the "Link SD Card" feature to function.*
+
+### 2. Locate Your Flying Site
 * **Search**: Use the search box in the top-left of the map to find your location by name or coordinates.
 * **Map Type**: Switch between **Google Hybrid**, **Satellite**, or **Terrain** views to best suit your visibility needs.
 * **Navigation**: Use the mouse wheel to set your altitude (zoom). The tool initializes at **Zoom 12** for a broad overview.
 
-### 2. Configure Resolution
+### 3. Configure Resolution
 * Select your radio model from the **Resolution** dropdown. **The presets in the list are for Fullscreen widget layout.**
 * If using a different (or custom) layout, select **Custom** and enter your specific pixel width and height for the widget size you will be using. Also, you can use the provided Lua tool if you need to verify your screen space.
 
-### 3. Precision Alignment
+### 4. Precision Alignment
 * Center the crosshair over the middle of your flying area.
 * Once positioned, check the **Zoom Lock** box to freeze the scale.
 * (Optional) Use the **📏 Measure** tool to verify the flight area boundaries.
 
-### 4. Direct Sync & Export
+### 5. Direct Sync & Export
 * **Link SD Card**: Connect your radio via USB (Storage Mode). Click **🔗 Link SD Card** and select the root of your radio's SD drive.
 * **Extract All**: Click the **⚡ Extract All** button. This will generate and save both the 16-bit BMP and the Metadata file in one click.
     * If linked, files are sent to `/bitmaps/GPS` and `/documents/user`.
     * If not linked, the files will download to your browser's default downloads folder.
 * **Manual Export**: Use the individual **Meta**, **Direct** (16-bit), or **Suite** (24-bit) buttons for specific file needs.
 
-### 5. If exported via Suite-button:
+### 6. If exported via Suite-button:
 * Open **Ethos Suite** and use the **Image Manager** to transcode the BMP to the radio's native 16-bit format.
 * Use the values in the generated `_metadata.txt` to configure your GPS widget fields on the radio.
 
