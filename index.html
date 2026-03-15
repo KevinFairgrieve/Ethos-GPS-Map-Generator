@@ -17,7 +17,7 @@
         .ui-panel { background: #1e1e1e; padding: 10px 15px; border-radius: 8px; margin: 5px 0; border: 1px solid #333; width: 950px; display: flex; flex-direction: column; gap: 8px; }
         .row { display: flex; justify-content: space-between; align-items: flex-end; gap: 10px; }
         
-        .bounds-display { background: #0a0a0a; padding: 8px 12px; border-radius: 6px; border: 1px solid #444; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; font-family: 'Consolas', monospace; font-size: 0.85em; }
+        .bounds-display { background: #0a0a0a; padding: 8px 12px; border-radius: 6px; border: 1px solid #444; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; font-family: 'Consolas', monospace; font-size: 0.85em; width: 705px; }
         .coord-val { color: #87b025; font-weight: bold; }
         
         .content-container { display: flex; gap: 15px; align-items: flex-start; margin-bottom: 15px; width: 980px; justify-content: center; }
@@ -26,6 +26,7 @@
 
         .leaflet-control-zoom.leaflet-bar { display: flex !important; flex-direction: column !important; }
 
+        /* RESTORED: Export Guide Styling */
         .info-box { width: 150px; background: #111; border: 1px solid #333; border-radius: 6px; padding: 12px; font-size: 0.75em; line-height: 1.4; color: #bbb; }
         .info-box h4 { margin: 0 0 8px 0; color: #87b025; text-transform: uppercase; font-size: 11px; letter-spacing: 1px; border-bottom: 1px solid #333; padding-bottom: 4px; }
         .info-item { margin-bottom: 10px; }
@@ -36,33 +37,9 @@
         #crosshair:before { top: 19px; left: 0; width: 40px; height: 2px; }
         #crosshair:after { top: 0; left: 19px; width: 2px; height: 40px; }
 
-        #hud-measure { 
-            position: absolute; top: 50%; left: 50%; 
-            transform: translate(25px, -25px); 
-            background: rgba(135, 176, 37, 0.9); color: #000; 
-            padding: 2px 6px; border-radius: 4px; 
-            font-family: 'Consolas', monospace; font-size: 12px; font-weight: bold; 
-            pointer-events: none; z-index: 1001; display: none; white-space: nowrap; 
-            box-shadow: 0 0 10px rgba(0,0,0,0.5); 
-        }
-        
-        #zoom-display-map {
-            position: absolute; top: 10px; right: 10px; z-index: 1005;
-            background: rgba(30, 30, 30, 0.9); color: #87b025; border: 2px solid #87b025;
-            border-radius: 4px; font-weight: bold; pointer-events: none;
-            box-shadow: 0 0 10px rgba(0,0,0,0.5); font-size: 11px; 
-            width: 101px; height: 26px;
-            display: flex; align-items: center; justify-content: center;
-        }
-
-        #measure-btn-map { 
-            position: absolute; top: 44px; right: 10px; z-index: 1005;
-            background: rgba(30, 30, 30, 0.9); color: #87b025; border: 2px solid #87b025;
-            border-radius: 4px; font-weight: bold; cursor: pointer;
-            box-shadow: 0 0 10px rgba(0,0,0,0.5); font-size: 11px; 
-            display: flex; align-items: center; justify-content: center; gap: 6px;
-            width: 101px; height: 26px;
-        }
+        #hud-measure { position: absolute; top: 50%; left: 50%; transform: translate(25px, -25px); background: rgba(135, 176, 37, 0.9); color: #000; padding: 2px 6px; border-radius: 4px; font-family: 'Consolas', monospace; font-size: 12px; font-weight: bold; pointer-events: none; z-index: 1001; display: none; white-space: nowrap; box-shadow: 0 0 10px rgba(0,0,0,0.5); }
+        #zoom-display-map { position: absolute; top: 10px; right: 10px; z-index: 1005; background: rgba(30, 30, 30, 0.9); color: #87b025; border: 2px solid #87b025; border-radius: 4px; font-weight: bold; pointer-events: none; box-shadow: 0 0 10px rgba(0,0,0,0.5); font-size: 11px; width: 101px; height: 26px; display: flex; align-items: center; justify-content: center; }
+        #measure-btn-map { position: absolute; top: 44px; right: 10px; z-index: 1005; background: rgba(30, 30, 30, 0.9); color: #87b025; border: 2px solid #87b025; border-radius: 4px; font-weight: bold; cursor: pointer; box-shadow: 0 0 10px rgba(0,0,0,0.5); font-size: 11px; display: flex; align-items: center; justify-content: center; gap: 6px; width: 101px; height: 26px; }
         #measure-btn-map.active { background: #87b025; color: #fff; border-color: #fff; }
 
         .leaflet-control-scale-line, #mouse-coords { background: rgba(0, 0, 0, 0.7) !important; color: #ffffff !important; border: 2px solid #87b025 !important; border-top: none !important; font-weight: bold !important; text-shadow: 1px 1px #000; }
@@ -81,27 +58,17 @@
         .label { color: #888; font-size: 0.7em; text-transform: uppercase; margin-bottom: 2px; letter-spacing: 1px; }
         input, select { background: #111; color: #fff; border: 1px solid #444; padding: 8px; border-radius: 4px; font-weight: bold; }
         
+        #custom-res-row { display: none; margin-top: 5px; background: #252525; padding: 8px 12px; border-radius: 6px; border: 1px solid #444; width: fit-content; gap: 15px; align-items: center; }
+        .sidebar-link { color: #87b025; text-decoration: none; font-weight: bold; font-size: 11px; }
+        .sidebar-link:hover { text-decoration: underline; }
+
+        /* RESTORED: Searchbox Theme */
         .leaflet-control-geocoder { background: #333 !important; border: 2px solid #87b025 !important; }
         .leaflet-control-geocoder-icon { filter: invert(1); }
         .leaflet-control-geocoder-form input { color: #ffffff !important; background: #333 !important; font-size: 14px !important; height: 26px !important; }
-        
-        .leaflet-control-geocoder-alternatives { 
-            background: #ffffff !important; 
-            border: 1px solid #ccc !important; 
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3) !important;
-            margin-top: 5px !important;
-            padding: 0 !important;
-            max-width: 300px !important;
-        }
+        .leaflet-control-geocoder-alternatives { background: #ffffff !important; border: 1px solid #ccc !important; box-shadow: 0 2px 10px rgba(0,0,0,0.3) !important; margin-top: 5px !important; padding: 0 !important; max-width: 300px !important; }
         .leaflet-control-geocoder-alternatives li { border-bottom: 1px solid #eee !important; list-style: none !important; }
-        .leaflet-control-geocoder-alternatives a { 
-            color: #000 !important; 
-            font-size: 13px !important; 
-            padding: 8px 12px !important; 
-            display: block !important; 
-            text-decoration: none !important;
-            line-height: 1.2 !important;
-        }
+        .leaflet-control-geocoder-alternatives a { color: #000 !important; font-size: 13px !important; padding: 8px 12px !important; display: block !important; text-decoration: none !important; line-height: 1.2 !important; }
         .leaflet-control-geocoder-address { color: #777 !important; font-size: 11px !important; display: block !important; margin-top: 2px !important; }
         .leaflet-control-geocoder-alternatives a:hover, .leaflet-control-geocoder-selected { background-color: #87b025 !important; }
         .leaflet-control-geocoder-alternatives a:hover, .leaflet-control-geocoder-alternatives a:hover .leaflet-control-geocoder-address { color: #ffffff !important; }
@@ -115,8 +82,15 @@
     
     <div class="ui-panel">
         <div class="row">
-            <div><div class="label">Project Title (Max 11)</div><input type="text" id="mapTitle" value="EthosMap" maxlength="11"></div>
-            <div><div class="label">Resolution</div><select id="resSelect" onchange="updateResolution()"><option value="800,480">800x480</option><option value="480,320">480x320</option></select></div>
+            <div><div class="label">Project Title</div><input type="text" id="mapTitle" value="EthosMap" maxlength="11"></div>
+            <div>
+                <div class="label">Resolution</div>
+                <select id="resSelect" onchange="toggleCustomRes()">
+                    <option value="800,480">X20/X18 (800x480)</option>
+                    <option value="480,320">X18 (480x320)</option>
+                    <option value="custom">Custom</option>
+                </select>
+            </div>
             <div class="zoom-lock-container"><input type="checkbox" id="zoomLock" onchange="toggleZoomLock()"><label for="zoomLock" style="font-size:12px; font-weight:bold; color:#ccc; cursor:pointer;">Zoom Lock</label></div>
             <div class="btn-group">
                 <button class="btn-link" id="linkBtn" onclick="linkSDCard()">🔗 Link SD Card</button>
@@ -126,9 +100,27 @@
                 <button class="btn-all" onclick="handleExtractAll()">⚡ Extract All</button>
             </div>
         </div>
+
+        <div id="custom-res-row">
+            <div style="color: #87b025; font-weight: bold; font-size: 11px; text-transform: uppercase;">Custom size:</div>
+            <div style="display:flex; align-items:center; gap:5px;">
+                <input type="number" id="customW" value="800" style="width: 65px; text-align: center;" oninput="updateResolution()">
+                <span style="color:#888; font-size: 11px;">PX Width</span>
+            </div>
+            <div style="display:flex; align-items:center; gap:5px;">
+                <input type="number" id="customH" value="480" style="width: 65px; text-align: center;" oninput="updateResolution()">
+                <span style="color:#888; font-size: 11px;">PX Height</span>
+            </div>
+            <div style="border-left: 1px solid #444; padding-left: 15px; margin-left: 5px;">
+                <span style="color: #666; font-size: 10px; display: block; margin-bottom: 2px;">Unknown size?</span>
+                <span style="color: #bbb; font-size: 11px;">Use </span>
+                <a href="https://github.com/MartinovEm/Ethos-Widget-Size-Check" target="_blank" class="sidebar-link">Ethos Widget Size Check Lua</a>
+            </div>
+        </div>
+
         <div class="row" style="margin-top: 5px;">
             <div><div class="label">Map Type</div><select id="layerSelect" style="width: 200px;" onchange="updateLayer()"><option value="y" selected>Google Hybrid</option><option value="s">Satellite Only</option><option value="p">Terrain</option></select></div>
-            <div class="bounds-display" style="width: 705px;">
+            <div class="bounds-display">
                 <div><div class="label">Latitude Boundary</div>N: <span class="coord-val" id="latNorth">0.0000</span> | S: <span class="coord-val" id="latSouth">0.0000</span></div>
                 <div><div class="label">Longitude Boundary</div>W: <span class="coord-val" id="lngWest">0.0000</span> | E: <span class="coord-val" id="lngEast">0.0000</span></div>
             </div>
@@ -141,7 +133,7 @@
             <div id="crosshair"></div>
             <div id="hud-measure">0m</div>
             <div id="mouse-coords">Lat: 0.0000, Lng: 0.0000</div>
-            <div id="zoom-display-map">Zoom: 15</div>
+            <div id="zoom-display-map">Zoom: 12</div>
             <div id="measure-btn-map" onclick="toggleMeasure()">📏 Measure</div>
         </div>
         <div class="info-box">
@@ -159,46 +151,58 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
     <script>
-        const map = L.map('map', { zoomControl: true, attributionControl: false }).setView([42.6977, 23.3219], 15);
+        const map = L.map('map', { zoomControl: true, attributionControl: false }).setView([42.6977, 23.3219], 12);
         let tileLayer, sdHandle = null, measureStart = null, measureLine = null;
+        
         L.control.scale({ imperial: false, metric: true, position: 'bottomleft' }).addTo(map);
         updateLayer();
+
+        function toggleCustomRes() {
+            const select = document.getElementById('resSelect');
+            const customRow = document.getElementById('custom-res-row');
+            customRow.style.display = (select.value === 'custom') ? 'flex' : 'none';
+            updateResolution();
+        }
+
+        function updateResolution() {
+            const select = document.getElementById('resSelect');
+            let w, h;
+            if (select.value === 'custom') {
+                w = parseInt(document.getElementById('customW').value) || 800;
+                h = parseInt(document.getElementById('customH').value) || 480;
+            } else {
+                [w, h] = select.value.split(',').map(Number);
+            }
+            const wrapper = document.getElementById('wrapper');
+            wrapper.style.width = w + "px"; wrapper.style.height = h + "px";
+            setTimeout(() => { map.invalidateSize(); updateBounds(); }, 200);
+        }
 
         function toggleMeasure() {
             const btn = document.getElementById('measure-btn-map');
             const hud = document.getElementById('hud-measure');
             if (!measureStart) {
                 measureStart = map.getCenter();
-                btn.classList.add('active');
-                hud.style.display = 'block';
+                btn.classList.add('active'); hud.style.display = 'block';
                 measureLine = L.polyline([measureStart, measureStart], {color: '#87b025', weight: 3, dashArray: '5, 10'}).addTo(map);
             } else {
-                measureStart = null;
-                btn.classList.remove('active');
-                hud.style.display = 'none';
+                measureStart = null; btn.classList.remove('active'); hud.style.display = 'none';
                 if (measureLine) map.removeLayer(measureLine);
             }
             updateCoordsDisplay(map.getCenter());
         }
 
         map.on('contextmenu', (e) => { if (measureStart) toggleMeasure(); });
-
-        function calculateDistance(lat1, lon1, lat2, lon2) {
-            const R = 6371e3;
-            const φ1 = lat1 * Math.PI/180, φ2 = lat2 * Math.PI/180;
-            const Δφ = (lat2-lat1) * Math.PI/180, Δλ = (lon2-lon1) * Math.PI/180;
-            const a = Math.sin(Δφ/2) * Math.sin(Δφ/2) + Math.cos(φ1) * Math.cos(φ2) * Math.sin(Δλ/2) * Math.sin(Δλ/2);
-            return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-        }
+        map.on('mousemove', (e) => { if (!measureStart) updateCoordsDisplay(e.latlng); });
+        map.on('move', () => { updateBounds(); updateCoordsDisplay(map.getCenter()); });
+        map.on('zoomend', () => { document.getElementById('zoom-display-map').innerText = `Zoom: ${map.getZoom()}`; });
 
         function updateCoordsDisplay(targetPos) {
             const mapCenter = map.getCenter();
-            let displayLat = targetPos.lat;
-            let displayLng = targetPos.lng;
-            let coordText = `Lat: ${displayLat.toFixed(6)}, Lng: ${displayLng.toFixed(6)}`;
+            let coordText = `Lat: ${targetPos.lat.toFixed(6)}, Lng: ${targetPos.lng.toFixed(6)}`;
             const hud = document.getElementById('hud-measure');
             if (measureStart) {
-                const distM = calculateDistance(measureStart.lat, measureStart.lng, mapCenter.lat, mapCenter.lng);
+                const distM = map.distance(measureStart, mapCenter);
                 const distStr = `${distM.toFixed(1)}m / ${(distM * 3.28084).toFixed(0)}ft`;
                 hud.innerHTML = distStr;
                 coordText = `📏 ${distStr} | Lat: ${mapCenter.lat.toFixed(6)}, Lng: ${mapCenter.lng.toFixed(6)}`;
@@ -207,72 +211,14 @@
             document.getElementById('mouse-coords').innerHTML = coordText;
         }
 
-        map.on('mousemove', (e) => { if (!measureStart) updateCoordsDisplay(e.latlng); });
-        map.on('move', () => { updateBounds(); updateCoordsDisplay(map.getCenter()); });
-        map.on('zoomend', () => { document.getElementById('zoom-display-map').innerText = `Zoom: ${map.getZoom()}`; });
-
-        L.Control.geocoder({ defaultMarkGeocode: false, position: 'topleft', placeholder: "SEARCH",
-            geocoder: L.Control.Geocoder.nominatim({ serviceUrl: 'https://nominatim.openstreetmap.org/' })
-        }).on('markgeocode', e => map.fitBounds(e.geocode.bbox)).addTo(map);
-
-        // RESTORED WATCHDOG LOGIC
-        async function linkSDCard() {
-            try {
-                sdHandle = await window.showDirectoryPicker();
-                const btn = document.getElementById('linkBtn');
-                btn.innerText = "✅ SD Linked";
-                btn.classList.add('linked');
-
-                // Start checking if connection is alive
-                const watchdog = setInterval(async () => {
-                    if (!sdHandle) { clearInterval(watchdog); return; }
-                    try {
-                        // Attempt to read directory to check if still connected
-                        await sdHandle.entries().next();
-                    } catch (e) {
-                        resetLinkButton();
-                        clearInterval(watchdog);
-                    }
-                }, 1500);
-            } catch (err) { console.error("SD Link failed", err); }
+        function updateBounds() {
+            const b = map.getBounds();
+            document.getElementById('latNorth').innerText = b.getNorth().toFixed(8);
+            document.getElementById('latSouth').innerText = b.getSouth().toFixed(8);
+            document.getElementById('lngWest').innerText = b.getWest().toFixed(8);
+            document.getElementById('lngEast').innerText = b.getEast().toFixed(8);
         }
-
-        function resetLinkButton() {
-            sdHandle = null;
-            const btn = document.getElementById('linkBtn');
-            btn.innerText = "🔗 Link SD Card";
-            btn.classList.remove('linked');
-        }
-
-        async function saveToSD(blob, folderPath, fileName) {
-            if (!sdHandle) return false;
-            try {
-                let currentHandle = sdHandle;
-                const folders = folderPath.split('/').filter(f => f.length > 0);
-                for (const folder of folders) { currentHandle = await currentHandle.getDirectoryHandle(folder, { create: true }); }
-                const fileHandle = await currentHandle.getFileHandle(fileName, { create: true });
-                const writable = await fileHandle.createWritable();
-                await writable.write(blob); await writable.close();
-                return true;
-            } catch (err) { 
-                resetLinkButton(); // Fail safe if writing fails due to disconnect
-                return false; 
-            }
-        }
-
-        async function handleMeta() {
-            const blob = createMetadataBlob(); const name = getFileName("_metadata.txt");
-            if (sdHandle) { if (await saveToSD(blob, "documents/user", name)) return; }
-            downloadFile(blob, name);
-        }
-
-        async function handleDirect() {
-            const blob = await createBMPBlob(16); const name = document.getElementById('mapTitle').value.trim().replace(/[^a-z0-9]/gi, '_') + ".bmp";
-            if (sdHandle) { if (await saveToSD(blob, "bitmaps/GPS", name)) return; }
-            downloadFile(blob, name);
-        }
-
-        async function handleExtractAll() { await handleMeta(); setTimeout(async () => { await handleDirect(); }, 800); }
+        updateBounds();
 
         function updateLayer() {
             const type = document.getElementById('layerSelect').value;
@@ -285,19 +231,6 @@
             isLocked ? (map.scrollWheelZoom.disable(), map.doubleClickZoom.disable(), map.touchZoom.disable()) : (map.scrollWheelZoom.enable(), map.doubleClickZoom.enable(), map.touchZoom.enable());
         }
 
-        function updateResolution() {
-            const [w, h] = document.getElementById('resSelect').value.split(',').map(Number);
-            document.getElementById('wrapper').style.width = w + "px"; document.getElementById('wrapper').style.height = h + "px";
-            setTimeout(() => { map.invalidateSize(); updateBounds(); }, 300);
-        }
-
-        function updateBounds() {
-            const b = map.getBounds();
-            document.getElementById('latNorth').innerText = b.getNorth().toFixed(8); document.getElementById('latSouth').innerText = b.getSouth().toFixed(8);
-            document.getElementById('lngWest').innerText = b.getWest().toFixed(8); document.getElementById('lngEast').innerText = b.getEast().toFixed(8);
-        }
-        updateBounds();
-
         function toDMS(decimal, isLat) {
             const absolute = Math.abs(decimal); const degrees = Math.floor(absolute);
             const minutes = Math.floor((absolute - degrees) * 60);
@@ -307,13 +240,16 @@
 
         function getFileName(ext) {
             const base = document.getElementById('mapTitle').value.trim().replace(/[^a-z0-9]/gi, '_');
-            const now = new Date(); const ts = now.toISOString().split('T')[0] + "_" + now.getHours().toString().padStart(2, '0') + "-" + now.getMinutes().toString().padStart(2, '0');
+            const now = new Date(); const ts = now.toISOString().split('T')[0] + "_" + now.getHours().toString().padStart(2, '0') + "_" + now.getMinutes().toString().padStart(2, '0');
             if (ext === ".bmp") return base.substring(0, 11) + ext;
             return `${base}_Z${map.getZoom()}_${ts}${ext}`;
         }
 
         function createMetadataBlob() {
-            const b = map.getBounds(); const n = b.getNorth(), s = b.getSouth(), w = b.getWest(), e = b.getEast(); const [resW, resH] = document.getElementById('resSelect').value.split(',');
+            const b = map.getBounds(); const n = b.getNorth(), s = b.getSouth(), w = b.getWest(), e = b.getEast();
+            const select = document.getElementById('resSelect');
+            const resW = (select.value === 'custom') ? document.getElementById('customW').value : select.value.split(',')[0];
+            const resH = (select.value === 'custom') ? document.getElementById('customH').value : select.value.split(',')[1];
             return new Blob([`MAP METADATA: ${document.getElementById('mapTitle').value}
 Generated: ${new Date().toLocaleString()}
 Resolution: ${resW} x ${resH} pixels
@@ -337,23 +273,24 @@ Zoom Level: ${map.getZoom()}`], { type: 'text/plain' });
         }
 
         async function createBMPBlob(depth) {
-            const [w, h] = document.getElementById('resSelect').value.split(',').map(Number);
-            const allHudElements = document.querySelectorAll('.leaflet-control, .leaflet-control-zoom, .leaflet-bar, #mouse-coords, #measure-btn-map, #hud-measure, #zoom-display-map');
-            allHudElements.forEach(el => { el.style.visibility = 'hidden'; el.style.opacity = '0'; });
+            const select = document.getElementById('resSelect');
+            let w, h;
+            if (select.value === 'custom') {
+                w = parseInt(document.getElementById('customW').value); h = parseInt(document.getElementById('customH').value);
+            } else {
+                [w, h] = select.value.split(',').map(Number);
+            }
+            const hud = document.querySelectorAll('.leaflet-control, .leaflet-control-zoom, .leaflet-bar, #mouse-coords, #measure-btn-map, #hud-measure, #zoom-display-map, #crosshair');
+            hud.forEach(el => { el.style.visibility = 'hidden'; el.style.opacity = '0'; });
             if (measureLine) measureLine.setStyle({opacity: 0});
             const mapEl = document.getElementById('map');
             const originalStyle = mapEl.getAttribute('style');
             mapEl.style.width = (w + 10) + 'px'; mapEl.style.height = (h + 10) + 'px';
             map.invalidateSize(false);
-            await new Promise(r => setTimeout(r, 100));
+            await new Promise(r => setTimeout(r, 150));
             const rawCanvas = await html2canvas(mapEl, { useCORS: true, width: w + 10, height: h + 10, scale: 1, backgroundColor: '#000000' });
-            mapEl.setAttribute('style', originalStyle);
-            map.invalidateSize(false);
-            allHudElements.forEach(el => { 
-                if (el.id === 'hud-measure' && !measureStart) return; 
-                el.style.visibility = 'visible'; 
-                el.style.opacity = '1'; 
-            });
+            mapEl.setAttribute('style', originalStyle); map.invalidateSize(false);
+            hud.forEach(el => { if (el.id === 'hud-measure' && !measureStart) return; el.style.display = 'flex'; el.style.visibility = 'visible'; el.style.opacity = '1'; });
             if (measureLine) measureLine.setStyle({opacity: 1});
             const finalCanvas = document.createElement('canvas'); finalCanvas.width = w; finalCanvas.height = h;
             const finalCtx = finalCanvas.getContext('2d'); finalCtx.drawImage(rawCanvas, 2, 2, w, h, 0, 0, w, h);
@@ -381,11 +318,58 @@ Zoom Level: ${map.getZoom()}`], { type: 'text/plain' });
             return new Blob([buffer], { type: "image/bmp" });
         }
 
-        function downloadFile(blob, filename) {
-            const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = filename;
-            document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url);
+        async function linkSDCard() {
+            try {
+                sdHandle = await window.showDirectoryPicker();
+                const btn = document.getElementById('linkBtn');
+                btn.innerText = "✅ SD Linked"; btn.classList.add('linked');
+                const watchdog = setInterval(async () => {
+                    if (!sdHandle) { clearInterval(watchdog); return; }
+                    try { await sdHandle.entries().next(); } catch (e) {
+                        sdHandle = null; btn.innerText = "🔗 Link SD Card"; btn.classList.remove('linked');
+                        clearInterval(watchdog);
+                    }
+                }, 1500);
+            } catch (err) {}
         }
-        async function exportBMP(depth) { downloadFile(await createBMPBlob(depth), getFileName(".bmp")); }
+
+        async function saveToSD(blob, folderPath, fileName) {
+            if (!sdHandle) return false;
+            try {
+                let currentHandle = sdHandle;
+                const folders = folderPath.split('/').filter(f => f.length > 0);
+                for (const folder of folders) { currentHandle = await currentHandle.getDirectoryHandle(folder, { create: true }); }
+                const fileHandle = await currentHandle.getFileHandle(fileName, { create: true });
+                const writable = await fileHandle.createWritable();
+                await writable.write(blob); await writable.close();
+                return true;
+            } catch (err) { return false; }
+        }
+
+        async function handleDirect() {
+            const blob = await createBMPBlob(16); const name = document.getElementById('mapTitle').value.trim().replace(/[^a-z0-9]/gi, '_') + ".bmp";
+            if (sdHandle) { if (await saveToSD(blob, "bitmaps/GPS", name)) return; }
+            downloadFile(blob, name);
+        }
+
+        async function handleMeta() {
+            const blob = createMetadataBlob(); const name = getFileName("_metadata.txt");
+            if (sdHandle) { if (await saveToSD(blob, "documents/user", name)) return; }
+            downloadFile(blob, name);
+        }
+
+        async function exportBMP(depth) {
+            const blob = await createBMPBlob(depth);
+            const name = getFileName(".bmp");
+            downloadFile(blob, name);
+        }
+
+        async function handleExtractAll() { await handleMeta(); setTimeout(async () => { await handleDirect(); }, 800); }
+        function downloadFile(blob, filename) { const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = filename; a.click(); }
+
+        L.Control.geocoder({ defaultMarkGeocode: false, position: 'topleft', placeholder: "SEARCH",
+            geocoder: L.Control.Geocoder.nominatim({ serviceUrl: 'https://nominatim.openstreetmap.org/' })
+        }).on('markgeocode', e => map.fitBounds(e.geocode.bbox)).addTo(map);
     </script>
 </body>
 </html>
