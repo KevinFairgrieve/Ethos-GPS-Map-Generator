@@ -127,7 +127,7 @@ When you export your files, you will notice differences in how they appear depen
 
 ---
 
-### ⚠️ Important: Full Screen vs. Top/Bottom bar screen size
+### ⚠️ Important II: Full Screen vs. Top/Bottom bar screen size
 Do not confuse Full Screen widget with the one that has top/bottom bars, despite in **New creen** menu they look the same. Only the one labeled Full Screen has true full screen widged size.
 
 <img width="1431" height="512" alt="fullscreen" src="https://github.com/user-attachments/assets/10c56d28-9fdc-4a17-83c9-b7d89186e164" />
