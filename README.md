@@ -33,7 +33,10 @@ The Ethos GPS Map Generator is a high-precision, web-based tool designed to crea
  
 ---
 
+
 ## How to Use
+
+⚠️ **You can use the tool online without downloading** by visiting: [https://martinovem.github.io/Ethos-GPS-Map-Generator/](https://martinovem.github.io/Ethos-GPS-Map-Generator/)
 
 ### 1. To use this tool from the repository:
 1. **Download**: Click the green **Code** button at the top of this page and select **Download ZIP.**
