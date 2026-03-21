@@ -4,6 +4,8 @@ The Ethos GPS Map Generator is a high-precision, web-based tool designed to crea
 
 > [!IMPORTANT]
 > **Sync Pro Status:** This tool uses the File System Access API. For the best experience, use **Chrome** or **Edge** to enable direct syncing to your Radio's SD card.
+>
+> ⚠️ **You can use the tool online without downloading** by visiting: [https://martinovem.github.io/Ethos-GPS-Map-Generator/](https://martinovem.github.io/Ethos-GPS-Map-Generator/)
 
 <img width="815" height="575" alt="Image" src="https://github.com/user-attachments/assets/b7bd16db-99e8-46d8-b7e8-225e4e18de3d" />
 
@@ -35,8 +37,6 @@ The Ethos GPS Map Generator is a high-precision, web-based tool designed to crea
 
 
 ## How to Use
-
-⚠️ **You can use the tool online without downloading** by visiting: [https://martinovem.github.io/Ethos-GPS-Map-Generator/](https://martinovem.github.io/Ethos-GPS-Map-Generator/)
 
 ### 1. To use this tool from the repository:
 1. **Download**: Click the green **Code** button at the top of this page and select **Download ZIP.**
