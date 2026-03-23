@@ -137,9 +137,9 @@
         <div class="info-box">
             <h4>Export Guide</h4>
             <div class="info-item"><b>Meta:</b> Configuration text file for the GPS widget settings.</div>
-            <div class="info-item"><b>Direct:</b> 16-bit BMP. Saved as Title.bmp directly to Radio.</div>
+            <div class="info-item"><b>Direct:</b> 16-bit BMP + JSON coordinates. Saved as Title.bmp + Title.json to Radio.</div>
             <div class="info-item"><b>Suite:</b> 24-bit BMP. Best for Ethos Suite processing.</div>
-            <div class="info-item"><b>Extract All:</b> Syncs Meta + 16-bit BMP in one click.</div>
+            <div class="info-item"><b>Extract All:</b> Syncs Meta + 16-bit BMP + JSON in one click.</div>
             <div class="info-item" style="border-top: 1px solid #333; padding-top: 5px;"><b>Link SD Card:</b> Syncs files directly to Radio Folders.</div>
         </div>
     </div>
@@ -344,10 +344,27 @@ Zoom Level: ${map.getZoom()}`], { type: 'text/plain' });
             } catch (err) { return false; }
         }
 
+        function createJsonBlob() {
+            const b = map.getBounds();
+            return new Blob([JSON.stringify({
+                topLat: parseFloat(b.getNorth().toFixed(8)),
+                bottomLat: parseFloat(b.getSouth().toFixed(8)),
+                leftLon: parseFloat(b.getWest().toFixed(8)),
+                rightLon: parseFloat(b.getEast().toFixed(8))
+            }, null, 2)], { type: 'application/json' });
+        }
+
         async function handleDirect() {
-            const blob = await createBMPBlob(16); const name = document.getElementById('mapTitle').value.trim().replace(/[^a-z0-9]/gi, '_') + ".bmp";
-            if (sdHandle) { if (await saveToSD(blob, "bitmaps/GPS", name)) return; }
-            downloadFile(blob, name);
+            const baseName = document.getElementById('mapTitle').value.trim().replace(/[^a-z0-9]/gi, '_');
+            const bmpBlob = await createBMPBlob(16);
+            const jsonBlob = createJsonBlob();
+            if (sdHandle) {
+                const bmpOk = await saveToSD(bmpBlob, "bitmaps/GPS", baseName + ".bmp");
+                const jsonOk = await saveToSD(jsonBlob, "documents/user", baseName + ".json");
+                if (bmpOk && jsonOk) return;
+            }
+            downloadFile(bmpBlob, baseName + ".bmp");
+            downloadFile(jsonBlob, baseName + ".json");
         }
 
         async function handleMeta() {
@@ -363,6 +380,7 @@ Zoom Level: ${map.getZoom()}`], { type: 'text/plain' });
         }
 
         async function handleExtractAll() { await handleMeta(); setTimeout(async () => { await handleDirect(); }, 800); }
+
         function downloadFile(blob, filename) { const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = filename; a.click(); }
 
         L.Control.geocoder({ defaultMarkGeocode: false, position: 'topleft', placeholder: "SEARCH",
